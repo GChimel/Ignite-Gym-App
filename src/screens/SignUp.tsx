@@ -5,7 +5,7 @@ import BackgroundImg from '@assets/background.png';
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
-export function SignIn() {
+export function SignUp() {
   return(
     //ScrollView para permitir rolagem
     <ScrollView 
@@ -21,7 +21,7 @@ export function SignIn() {
         />
 
         {/* Logo & subtitulo */}
-        <Center my={24}>
+        <Center my={20}>
           <LogoSvg/>
           <Text color='gray.100' fontSize='sm'>
             Treine sua mente e seu corpo
@@ -29,12 +29,15 @@ export function SignIn() {
         </Center>
 
         {/* Conteúdo principal */}
- 
         <Center>
           <Heading color='gray.100' fontSize='xl' mb={6} fontFamily={'heading'}>
-            Acesse sua conta
+            Crie sua conta
           </Heading>
 
+          <Input 
+            placeholder='Nome'
+          />
+  
           <Input 
             placeholder='E-mail'
             keyboardType='email-address' //Tipo de teclado para email
@@ -47,21 +50,15 @@ export function SignIn() {
           />
 
           <Button
-            title='Acessar'
+            title='Criar e acessar'
           />
         </Center>
 
-        <Center mt={24}>
-          <Text
-            color='gray.100' fontSize='sm' mb={3} fontFamily='body'
-          >
-            Ainda não tem acesso
-          </Text>
-          <Button
-            title='Criar conta'
-            variant='outline'
-          />
-        </Center>
+        <Button
+          mt={24}
+          title='Voltar para o login'
+          variant='outline'
+        />
       </VStack>
     </ScrollView>
   );
