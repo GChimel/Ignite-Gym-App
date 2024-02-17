@@ -1,11 +1,21 @@
 import { VStack, Image, Text, Center, Heading, ScrollView } from 'native-base';
 
+import { useNavigation } from '@react-navigation/native';
+
 import LogoSvg from '@assets/logo.svg'
 import BackgroundImg from '@assets/background.png';
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
 export function SignUp() {
+
+  // Navegação 
+  const navigation = useNavigation();
+
+  function handleGoBack(){
+    navigation.goBack();
+  }
+
   return(
     //ScrollView para permitir rolagem
     <ScrollView 
@@ -15,6 +25,7 @@ export function SignUp() {
       <VStack flex={1} bg='gray.700' px={10}>
         <Image
           source={BackgroundImg}
+          defaultSource={BackgroundImg} //Entende que é a imagem padrão e faz com que carrege a imagem mais rapidamente
           alt='Pessoas treinando' //Alternativa caso não tenha imagem
           resizeMode='contain' //Redimensionar imagem
           position='absolute' //Posicionando a imagem em toda a tela
@@ -58,6 +69,7 @@ export function SignUp() {
           mt={24}
           title='Voltar para o login'
           variant='outline'
+          onPress={handleGoBack}
         />
       </VStack>
     </ScrollView>
